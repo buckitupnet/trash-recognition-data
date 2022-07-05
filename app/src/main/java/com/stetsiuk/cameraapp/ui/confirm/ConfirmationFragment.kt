@@ -1,17 +1,17 @@
 package com.stetsiuk.cameraapp.ui.confirm
 
-import android.annotation.SuppressLint
 import android.content.Context
+import android.database.Cursor
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -63,7 +63,7 @@ class ConfirmationFragment : Fragment(), OnTagClickListener {
         return binding.root
     }
 
-    @RequiresApi(Build.VERSION_CODES.R)
+    //@RequiresApi(Build.VERSION_CODES.R)
     private fun init() {
         photoHolder = binding.takenPhoto
         drawingView = binding.drawingView
@@ -111,7 +111,7 @@ class ConfirmationFragment : Fragment(), OnTagClickListener {
             }
             mainActivity.goBackToCameraFromConfirmation()
         } catch (ex: Exception) {
-            Log.e("Tag", "delete picture err: ${ex.message}", ex)
+            Log.e(MainActivity.TAG, "delete picture err: ${ex.message}", ex)
         }
     }
 
